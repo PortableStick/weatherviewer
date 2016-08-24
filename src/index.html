@@ -41,6 +41,10 @@
             <div class="low">Low: <span id="low-temp" class="temp farenheit">{{low}}</span></div>
         </div>
     </template>
+    <template id="error-template">
+        <h1 class="error">Geolocation error</h1>
+        <p>{{message}}</p>
+    </template>
     <script src="scripts/vendor.js"></script>
     <script src="scripts/main.js"></script>
 </body>

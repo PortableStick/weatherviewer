@@ -3,7 +3,8 @@ import handlebars from 'handlebars';
 
 $(document).ready(() => {
   const currentTemplate = handlebars.compile($('#current-template').html()),
-   forecastTemplate = handlebars.compile($('#future-template').html());
+   forecastTemplate = handlebars.compile($('#future-template').html()),
+   errorTemplate = handlebars.compile($('#error-template').html());
 
    $('#scale-btn').click(() => {
         $('.temp').each((index, $item) => {
@@ -36,9 +37,9 @@ $(document).ready(() => {
       });
     }).catch((error) => {
       // display error
+      $('.jumbotron').html(errorTemplate(error));
+      $('#scale-btn').hide();
     });
-  } else {
-    // show geolocation error
   }
 });
 
@@ -59,5 +60,3 @@ function getPositionData() {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 }
-
-// need a function to change temperature units
