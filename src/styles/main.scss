@@ -1,10 +1,13 @@
 .navbar {
-  text-align: center;
+    text-align: center;
+    .app-name {
+        display: inline-block;
+        font-size: 1.4em;
+        margin: 0;
+        padding-top: 15px;
+    }
+}
 
-  .app-name {
-    display: inline-block;
-    font-size: 1.4em;
-    margin: 0;
-    padding-top: 15px;
-  }
+.temp:after {
+    content: "º";
 }
