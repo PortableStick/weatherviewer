@@ -4,6 +4,7 @@
   "description": "A remake of my local weather viewer app",
   "main": "dist/index.html",
   "scripts": {
+    "postinstall": "git clone https://github.com/erikflowers/weather-icons.git node_modules/weather-icons",
     "server": "browser-sync start -s 'dist' -f 'dist'",
     "cleanup": "rm -rf dist/*",
     "setupfolder": "mkdir -p dist/scripts dist/css dist/images",
