@@ -8,6 +8,10 @@
     }
 }
 
-.temp:after {
-    content: "º";
+.farenheit:after {
+    content: "º f";
+}
+
+.celsius:after {
+    content: "º c";
 }

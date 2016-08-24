@@ -23,21 +23,22 @@
         <div class="jumbotron today">
             <h1 class="current-location"></h1>
         </div>
+        <button id="scale-btn" class="btn btn-lg btn-primary">Change temperature scale</button>
         <div class="row five-day"></div>
     </section>
     <template id="current-template">
         <p class="description">{{summary}}
             <i class="wi wi-forecast-io-{{icon}}"></i>
         </p>
-        <div class="current">It is currently <span id="current-temp" class="temp">{{temperature}}</span></div>
+        <div class="current">It is currently <span id="current-temp" class="temp farenheit">{{temperature}}</span></div>
     </template>
     <template id="future-template">
         <div class="future-item col-xs-12 col-md-3">
             <h2 class="date">{{time.day}}, {{time.month}} {{time.date}}</h2>
             <i class="wi wi-forecast-io-{{icon}}"></i>
             <p class="description">{{summary}}</p>
-            <div class="high">High: <span id="high-temp" class="temp">{{high}}</span></div>
-            <div class="low">Low: <span id="low-temp" class="temp">{{low}}</span></div>
+            <div class="high">High: <span id="high-temp" class="temp farenheit">{{high}}</span></div>
+            <div class="low">Low: <span id="low-temp" class="temp farenheit">{{low}}</span></div>
         </div>
     </template>
     <script src="scripts/vendor.js"></script>
