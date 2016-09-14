@@ -10,9 +10,9 @@
     "setupfolder": "mkdir -p dist/scripts dist/css dist/images",
     "test": "babel-node src/tests/*.js | (faucet || true) && echo ------------- ",
     "build:html": "cp -r src/index.html dist/",
-    "build:scripts": "browserify -x jquery -x bootstrap src/scripts/*.js -t [ babelify uglifyify ] -o dist/scripts/main.js",
+    "build:scripts": "browserify -x jquery -x bootstrap -x rxjs -x rx-dom src/scripts/*.js -t [ babelify uglifyify ] -o dist/scripts/main.js",
     "build:images": "cp -rf src/images/* dist/images/",
-    "build:vendor": "browserify -r jquery -r bootstrap -t [ babelify ] -o dist/scripts/vendor.js && cat node_modules/bootstrap/dist/css/bootstrap.min.css local_modules/weather-icons/css/weather-icons.min.css | cleancss -o dist/css/bundle.css && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map dist/css/bootstrap.min.css.map && cp -r local_modules/weather-icons/font dist/",
+    "build:vendor": "browserify -r jquery -r bootstrap -r rxjs -r rx-dom -t [ babelify ] -o dist/scripts/vendor.js && cat node_modules/bootstrap/dist/css/bootstrap.min.css local_modules/weather-icons/css/weather-icons.min.css | cleancss -o dist/css/bundle.css && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map dist/css/bootstrap.min.css.map && cp -r local_modules/weather-icons/font dist/",
     "build:styles": "node-sass --output-style compressed --source-map=true -o dist/css src/styles",
     "watch:html": "onchange src/**/*.html -- npm run build:html",
     "watch:js": "onchange src/**/*.js -e src/test/**/*.js -- npm run build:scripts",
@@ -49,6 +49,8 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "handlebars": "^4.0.5",
-    "jquery": "^3.1.0"
+    "jquery": "^3.1.0",
+    "rx-dom": "^7.0.3",
+    "rxjs": "^5.0.0-beta.12"
   }
 }
