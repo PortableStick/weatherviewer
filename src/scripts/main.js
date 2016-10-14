@@ -10,7 +10,7 @@ const currentTemplate = handlebars.compile($('#current-template').html()),
 DOM.ready()
 .flatMap(() => DOM.geolocation.getCurrentPosition({enableHighAccuracy: true}))
 .flatMap(data => DOM.ajax({
-  url: "http://localhost:9000/weather",
+  url: "https://127.0.0.1:9000/weather",
   method: "POST",
   body: JSON.stringify({"currentPosition": `${data.coords.latitude},${data.coords.longitude}`}),
   responseType: 'json',
@@ -20,6 +20,7 @@ DOM.ready()
 }))
 .map(data => data.response)
 .subscribe(data => {
+  $('#loader').hide();
   $('.current-location').html(data.city);
   $('.today').append(currentTemplate(data.currentWeather));
 
@@ -28,6 +29,7 @@ DOM.ready()
   });
 }, (error) => {
   // display error
+  $('#loader').hide();
   $('.jumbotron').html(errorTemplate(error));
   $('#scale-btn').hide();
 });

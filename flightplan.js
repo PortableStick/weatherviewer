@@ -65,7 +65,3 @@ plan.remote(['staging', 'production'], function(remote) {
     });
 });
 
-plan.local(['staging', 'production'], function(local) {
-    local.log("Deleting temporary folder")
-    local.exec(`rm -r ~/${appName}`);
-});
