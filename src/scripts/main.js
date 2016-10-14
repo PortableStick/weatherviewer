@@ -10,7 +10,7 @@ const currentTemplate = handlebars.compile($('#current-template').html()),
 DOM.ready()
 .flatMap(() => DOM.geolocation.getCurrentPosition({enableHighAccuracy: true}))
 .flatMap(data => DOM.ajax({
-  url: "https://127.0.0.1:9000/weather",
+  url: "https://api.gregoftheweb.com/weather",
   method: "POST",
   body: JSON.stringify({"currentPosition": `${data.coords.latitude},${data.coords.longitude}`}),
   responseType: 'json',
